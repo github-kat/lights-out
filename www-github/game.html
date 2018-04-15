@@ -1,0 +1,84 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+		<title>Lights Out</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/lightsout.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+	</head>
+	<body>
+		<script type="text/javascript">
+			var page = 'game';
+		</script>
+		<div class="row">
+			<div class="col-xs-12 centered-col">
+				<h1 class="no-top-margin">lights out</h1>
+				<div class='moves-section'>candy: <span>50</span></div>
+				<div class="flex-container">
+				  <div class='moves-section'>moves: <span id='movesCount'>0</span></div>
+					<a class="icons disabled" id="hint" onclick="showHint();"><span class="fa fa-lightbulb-o"></span></a>
+					<a class="icons disabled" id="solution" onclick="displaySolution();"><span class="fa fa-puzzle-piece"></span></a>
+				</div>
+
+				<canvas id="canvas"></canvas>
+				<div class="play-again-parent" onclick="newTable();">
+					<span class="play-again fa fa-plus"></span>
+				</div>
+				<table id="grid">
+					<tr id="row0">
+					  <td id="row0col0" alt="off" data-windowID="0" class="square off"></td>
+					  <td id="row0col1" alt="off" data-windowID="1" class="square off"></td>
+					  <td id="row0col2" alt="off" data-windowID="2" class="square off"></td>
+					  <td id="row0col3" alt="off" data-windowID="3" class="square off"></td>
+					  <td id="row0col4" alt="off" data-windowID="4" class="square off"></td>
+					</tr>
+					<tr id="row1">
+					  <td id="row1col0" alt="off" data-windowID="5" class="square off"></td>
+					  <td id="row1col1" alt="off" data-windowID="6" class="square off"></td>
+					  <td id="row1col2" alt="off" data-windowID="7" class="square off"></td>
+					  <td id="row1col3" alt="off" data-windowID="8" class="square off"></td>
+					  <td id="row1col4" alt="off" data-windowID="9" class="square off"></td>
+					</tr>
+					<tr id="row2">
+					  <td id="row2col0" alt="off" data-windowID="10" class="square off"></td>
+					  <td id="row2col1" alt="off" data-windowID="11" class="square off"></td>
+					  <td id="row2col2" alt="off" data-windowID="12" class="square off"></td>
+					  <td id="row2col3" alt="off" data-windowID="13" class="square off"></td>
+					  <td id="row2col4" alt="off" data-windowID="14" class="square off"></td>
+					</tr>
+					<tr id="row3">
+					  <td id="row3col0" alt="off" data-windowID="15" class="square off"></td>
+					  <td id="row3col1" alt="off" data-windowID="16" class="square off"></td>
+					  <td id="row3col2" alt="off" data-windowID="17" class="square off"></td>
+					  <td id="row3col3" alt="off" data-windowID="18" class="square off"></td>
+					  <td id="row3col4" alt="off" data-windowID="19" class="square off"></td>
+					</tr>
+					<tr id="row4">
+					  <td id="row4col0" alt="off" data-windowID="20" class="square off"></td>
+					  <td id="row4col1" alt="off" data-windowID="21" class="square off"></td>
+					  <td id="row4col2" alt="off" data-windowID="22" class="square off"></td>
+					  <td id="row4col3" alt="off" data-windowID="23" class="square off"></td>
+					  <td id="row4col4" alt="off" data-windowID="24" class="square off"></td>
+				   </tr>
+				</table>
+
+				<div class="flex-container">
+					<a class="menu-btn" href="index.html"><span class="fa fa-long-arrow-left"></span><p>menu</p></a>
+					<a class="menu-btn" id="sound"><span class="fa fa-volume-up"></span><p>sound</p></a>
+					<a class="menu-btn" onclick="newTable();"><span class="fa fa-plus"></span><p>new table</p></a>
+					<a class="menu-btn disabled" id="reset-grid" onmousedown="playsound();" onclick="resetGrid();"><span class="fa fa-repeat"></span><p>reset</p></a>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/lightsout.js"></script>
+	<script type="text/javascript" src="js/canvasanimation.js"></script>
+	<script type="text/javascript" src="js/solver.js"></script>
+</html>

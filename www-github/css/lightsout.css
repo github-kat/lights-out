@@ -1,0 +1,384 @@
+/********************************** colours ***********************************/
+/*
+$color1: black;
+$font1: caviar;
+$font2: caviar;
+
+$font3: caviar;
+$font4: quicksand-light;
+$h1case: uppercase;
+$h1size: 40px;
+
+$background-color: #23B1A5;
+$text-color: $color1;
+$border-color: $color1;
+$hint-color: #f32b7c;
+
+$square-on: #FFDD7E;
+$square-off: #E95280;
+
+$disabled-color: #162628;
+*/
+/*********************************** fonts ************************************/
+@font-face {
+  font-family: amatic;
+  src: url("../fonts/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: amatic-bold;
+  src: url("../fonts/Amatic-Bold.ttf");
+}
+
+@font-face {
+  font-family: quicksand-light;
+  src: url("../fonts/Quicksand-Light.otf");
+}
+
+@font-face {
+  font-family: quicksand;
+  src: url("../fonts/Quicksand-Regular.otf");
+}
+
+@font-face {
+  font-family: caviar;
+  src: url("../fonts/CaviarDreams.ttf");
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/********************************** common ************************************/
+body {
+  background-color: #124953;
+  background-image: none;
+}
+
+.centered-col {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+}
+
+.centered-col-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 290px;
+}
+
+h1 {
+  color: white;
+  font-size: 48px;
+  font-family: amatic;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: lowercase;
+}
+h1.no-top-margin {
+  margin-top: 0px;
+}
+h1.margin-bottom-30 {
+  margin-bottom: 30px;
+}
+
+.menu-btn {
+  color: white;
+  font-size: 26px;
+  font-family: amatic;
+  text-align: center;
+  flex-grow: 1;
+  cursor: pointer;
+}
+.menu-btn:hover, .menu-btn:focus {
+  text-decoration: none;
+  color: white;
+}
+.menu-btn p {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: quicksand;
+}
+
+.menu-btn-main {
+  background: #0f3e46;
+  padding: 8px 0px 8px 0px;
+}
+
+.menu-btn-secondary {
+  background: #114550;
+  padding: 8px 0px 8px 0px;
+  width: 33%;
+}
+
+.moves-section {
+  color: white;
+  font-family: quicksand;
+  font-size: 15px;
+  margin-left: 5px;
+  flex-grow: 1;
+  margin-top: 12px;
+}
+
+#movesCount {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.pulse-count {
+  animation-name: pulse_animation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse_animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.icons {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+.icons:hover {
+  color: white;
+}
+
+.disabled {
+  pointer-events: none;
+  color: #8a8787;
+  cursor: default;
+}
+.disabled:hover {
+  color: #756b6b;
+}
+
+#solution {
+  margin-right: 5px;
+  margin-left: 23px;
+}
+
+.icon-span {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: quicksand;
+  margin-left: 5px;
+}
+
+/************************************ play ************************************/
+.on {
+  background-color: #f7d990;
+}
+
+.off {
+  background-color: #092429;
+}
+
+#grid {
+  margin-bottom: 15px;
+}
+#grid tr td {
+  padding-top: 5px;
+  width: 47px;
+  height: 58px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #124953;
+}
+
+.disabled-grid {
+  pointer-events: none;
+  /*opacity: 0.6;*/
+}
+
+.enabled-grid {
+  pointer-events: auto;
+  opacity: 1;
+  background: #0A4555;
+}
+
+.play-again-parent {
+  position: absolute;
+  left: 50%;
+  top: 44.5%;
+  display: none;
+}
+
+.play-again {
+  top: -50%;
+  font-size: 90px !important;
+  color: white;
+  position: relative;
+  left: -50%;
+}
+
+/*********************************** menu *************************************/
+#logoTable {
+  margin: auto;
+  margin-bottom: 35px;
+}
+#logoTable tr td {
+  background: #092429;
+  border: 2px solid #124953;
+  margin-top: 5px;
+  padding: 10px;
+}
+#logoTable td.picked {
+  background: #f7d990;
+}
+
+.border-bottom {
+  border-bottom: 1px solid white;
+}
+
+.border-right {
+  border-right: 1px solid white;
+}
+
+/***********************************  stats ***********************************/
+.win {
+  border-bottom: 1px solid white;
+  padding-bottom: 15px !important;
+  color: white;
+  font-size: 14px;
+  font-family: caviar;
+  margin-top: 10px;
+  padding: 4px;
+  display: flex;
+}
+.win table td {
+  border: 2px solid #124953;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.showOptLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.marked::before {
+  content: "\f111";
+  font-family: FontAwesome;
+  color: #f32b7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3px;
+  margin-top: 1px;
+}
+
+#grid .marked::before {
+  content: "\f111";
+  font-size: 8px !important;
+  margin-top: 0px;
+}
+
+.rule-example .marked::before {
+  margin-top: 2px;
+}
+
+.rule-example .marked {
+  padding: 0px !important;
+}
+
+.stats-buttons {
+  padding-top: 7px;
+}
+
+/*********************************** canvas ***********************************/
+canvas {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+/************************************ rules ***********************************/
+.rules {
+  color: white;
+  font-family: quicksand-light;
+  text-align: center;
+}
+.rules.about-div {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.rule-example {
+  margin-bottom: 30px;
+}
+.rule-example tr td {
+  background: #092429;
+  border: 2px solid #124953;
+  margin-top: 5px;
+  padding: 6px;
+}
+.rule-example td.picked {
+  background: #f7d990;
+}
+
+.fa-long-arrow-right {
+  margin-top: 26px;
+}
+
+/********************************* challenges *********************************/
+.challenges-table {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+.challenges-table caption {
+  color: white;
+  font: amatic;
+}
+.challenges-table th, .challenges-table td {
+  padding: 5px;
+  text-align: left;
+  color: white;
+  font: amatic;
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: center;
+}
+.challenges-table .passed {
+  color: #00f107;
+}
+.challenges-table .failed {
+  color: black;
+}

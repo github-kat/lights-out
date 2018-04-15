@@ -1,0 +1,82 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+	  <title>Lights Out</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/lightsout.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/lightsout.js"></script>
+		<script type="text/javascript" src="js/solver.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var page = 'stats';
+		</script>
+		<div class="row">
+			<div class="col-xs-12 centered-col-top">
+				<h1>win stats</h1>
+				<div id="wins_table"></div>
+
+				<div class="flex-container stats-buttons">
+					<a class="menu-btn" href="index.html"><span class="fa fa-long-arrow-left"></span><p>menu</p></a>
+					<a class="menu-btn" onclick="clearWinStats();"><span class="fa fa-trash"></span><p>Delete All</p></a>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+	<script>
+
+		var wins = JSON.parse(localStorage.getItem("lightsOutWinStats"));
+
+		if (wins.length > 0) {
+			$(wins).each(function(index, item){
+				$('#wins_table').prepend('<div id="win' + index +'" class="win">');
+				$('#win' + index).append('<div class=""><table id="wins_grid'+index.toString()+'"></table>  \
+				</div><div class="" style="margin-left: 10px;"> \
+				<div>moves: '+wins[index]['moves']+'</div> \
+				<div>level: '+wins[index]['level']+'</div> \
+				<div>hint(s) used: '+wins[index]['hints']+'</div><br/> \
+				<div class="showOptLink" onclick="showSolution(['+wins[index]["grid"]+ '], '+index+', '+wins[index]['moves']+');">Show optimal solution</div> \
+				</div>');
+
+				var imgNumber = 0;
+				var rows = 5;
+				var columns = 5;
+
+				// <div>date: '+wins[index]['date']+'</div> \
+				// <div class="">grid: <table id="wins_grid'
+				// create trs
+				for (var row_i = 0; row_i < rows; row_i++) {
+					var row = document.createElement('tr');
+					$(row).attr('id', 'row' + row_i + index); // tr id='row#'
+					document.getElementById('wins_grid'+index.toString()).appendChild(row);
+
+					// create tds and imgs inside tds
+					var col_i = 0;
+					while (col_i < columns) {
+						var td = document.createElement('td');
+						var td_id = 'win' + index + 'col' + col_i + 'row' + row_i;
+						$(td).attr('id', td_id);
+						if (wins[index]['grid'][imgNumber] == 0) {
+							$(td).addClass('off');
+						} else {
+							$(td).addClass('on');
+						}
+						document.getElementById('row' + row_i + index).appendChild(td);
+						col_i++;
+						imgNumber++;
+					}
+				}
+				$('#wins_table').append('</div>');
+			});
+		}
+
+	</script>
+</html>

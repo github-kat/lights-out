@@ -1,0 +1,161 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+	  <title>Lights Out</title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/lightsout.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+	</head>
+	<body>
+		<script type="text/javascript">
+			var page = 'rules';
+		</script>
+		<div class="row">
+			<div class="col-xs-12 centered-col-top">
+				<h1>rules</h1>
+				<div class="rules">Clicking on a window toggles its light and each light adjacent to it. Turn off all the lights to get
+					 the party started! <br/><br/>An example of how the lights toggle <br/><br/></div>
+
+
+				<div class="flex-container">
+					<table class="rule-example">
+						<tr id="row1">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row2">
+							<td></td>
+							<td></td>
+							<td class="picked"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row3">
+							<td></td>
+							<td class="picked"></td>
+							<td class='picked marked'></td>
+							<td class="picked"></td>
+							<td></td>
+						</tr>
+						<tr id="row4">
+							<td class="picked"></td>
+							<td></td>
+							<td class="picked"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row5">
+							<td class="picked"></td>
+							<td class="picked"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+
+					<span class="menu-btn fa fa-long-arrow-right"></span></a>
+
+					<table class="rule-example">
+						<tr id="row1">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row2">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row3">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row4">
+							<td class="picked"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row5">
+							<td class="picked marked"></td>
+							<td class="picked"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+
+					<span class="menu-btn fa fa-long-arrow-right"></span></a>
+
+					<table class="rule-example">
+						<tr id="row1">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row2">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row3">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row4">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr id="row5">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+ 				</div>
+
+				<div class="rules">Try turning off all lights using the fewest amount of clicks.
+There is a hint <span class="fa fa-lightbulb-o"></span> and a solution <span class="fa fa-puzzle-piece"></span> button for when you are stuck.
+The hint is enabled after 10 moves and the solution after 15 moves.
+You can reset <span class="fa fa-repeat"></span> the grid to view what it was initially.
+<br/><br/>
+Each layout has a solution. Some more difficult than others. The level of difficulty
+is chosen at random.
+</div>
+
+				<div class="flex-container">
+					<a class="menu-btn" href="index.html"><span class="fa fa-long-arrow-left"></span><p>menu</p></a>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</html>
